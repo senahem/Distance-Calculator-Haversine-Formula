@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		#top, #bottom, #left, #right {
+			background: #a5ebff;
+			}
+			#left, #right {
+				position: fixed;
+				top: 0; bottom: 0;
+				width: 15px;
+				}
+				#left { left: 0; }
+				#right { right: 0; }
+				
+			#top, #bottom {
+				position: fixed;
+				left: 0; right: 0;
+				height: 15px;
+				}
+				#top { top: 0; }
+				#bottom { bottom: 0; }
+				
+		@media 
+		
+		/* Fairly small screens including iphones */
+		only screen and (max-width: 500px),
+		
+		/* iPads */
+		only screen and (min-device-width: 768px) and (max-device-width: 1024px) 
+		
+		{
+			#top, #bottom, #left, #right { display: none; }
+		}
+	</style>
+	<title>Lab3</title>
+	<link rel="stylesheet" type="text/css" href="lab3.css">
+	<script src="run.js"></script>
+	<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqBz3Npp1LROYiMkwrA26mZ3V8QUObVY8&callback=initMap"></script>
+</head>
+<body>
+<h1 class="header">
+CPS630 Lab3
+</h1>
+<div id="userCoords"></div>	
+<div id="userAddress"></div>
+<div id="fileDisplayArea">Dragged Location: (<font color="red">No file dragged yet</font>)</div>
+  <div class="container">
+
+		<center><div id="dropItem">Drop text file here.</div></center>
+		<center><input hidden="hidden" id="fileInput" type="file" onchange="processFiles(this.files)"></center>
+		<br>
+		<hr>
+		<br>
+		
+		<p>Distance: <output id="distance"></output></p>
+		<input type="submit" value="Calculate Distance" onclick="distanceWorker()"/>
+		
+		
+		<br>
+		<br>
+	<div id="googleMaps"></div>
+	</div>
+<footer>
+Sina Hemmati
+</footer>
+	<div id="left"></div>
+	<div id="right"></div>
+	<div id="top"></div>
+	<div id="bottom"></div>
+</body>
+
+
+</html>
